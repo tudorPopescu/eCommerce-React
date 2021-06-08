@@ -1,5 +1,6 @@
 import React from 'react';
-import { Map, Filter } from 'react-lodash';
+import CollectionItem from '../collection-item/collection-item.component';
+import { Map } from 'react-lodash';
 
 import './collection-preview.styles.scss';
 
@@ -9,7 +10,7 @@ const CollectionPreview = ({ title, items }) => {
       <h1 className='title'>{title.toUpperCase()}</h1>
       <div className="preview">
         {
-          <Map collection={ items } iteratee={ (item, index) => index < 4 ? <div key={item.id}>{item.name}</div> : null } />
+          <Map collection={items} iteratee={ ({id, ...otherItemProps}, index) => index < 4 ? <CollectionItem key={id} {...otherItemProps} /> : null }/>
         }
       </div>
     </div>
