@@ -10,7 +10,7 @@ const CollectionPreview = ({ title, items }) => {
       <h1 className='title'>{title.toUpperCase()}</h1>
       <div className="preview">
         {
-          <Map collection={items} iteratee={ ({id, ...otherItemProps}, index) => index < 4 ? <CollectionItem key={id} {...otherItemProps} /> : null }/>
+          <Map collection={items} iteratee={ (item, index) => index < 4 ? <CollectionItem key={item.id} item={item} /> : null }/>
         }
       </div>
     </div>
