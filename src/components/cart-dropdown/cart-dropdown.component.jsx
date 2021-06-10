@@ -6,7 +6,6 @@ import CartItem from '../cart-item/cart-item.component';
 import './cart-dropdown.styles.scss';
 
 const CartDropdown = ({ cartItems }) => {
-  console.log('aic iintra?', cartItems);
   return (
     <div className="cart-dropdown">
       <div className="cart-items">
