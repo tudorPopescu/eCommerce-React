@@ -14,9 +14,10 @@ function signOut() {
 
 const Header = ({ currentUser, hidden }) => {
   return (
-    <div className="header">
+    <div className='header'>
       <Link className='logo-container' to='/'>
         <Logo className='logo' />
+        <div className='subtitle'>Tudor - eCommerce</div>
       </Link>
       <div className="options">
         <Link className='option' to='/shop'>SHOP</Link>

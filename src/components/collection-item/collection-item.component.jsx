@@ -5,7 +5,7 @@ import CustomButton from '../custom-button/custom-button.component';
 
 import './collection-item.styles.scss';
 
-const CollectionItem = ({ item, addItem }) => {
+const CollectionItem = ({ item, addItem, quantity }) => {
   const { name, price, imageUrl } = item;
 
   return (
@@ -13,7 +13,7 @@ const CollectionItem = ({ item, addItem }) => {
       <div className="image" style={{backgroundImage: `url(${imageUrl})`}}></div>
       <div className="collection-footer">
         <span className="name">{name}</span>
-        <span className="price">{price}</span>
+        <span className="price">{quantity} x ${price}</span>
       </div>
       <CustomButton onClick={() => addItem(item)} inverted>Add to cart</CustomButton>
     </div>
