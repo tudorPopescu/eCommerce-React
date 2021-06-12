@@ -7,23 +7,13 @@ import MenuItem from '../menu-item/menu-item.component';
 
 import './directory.styles.scss';
 
-class Directory extends React.Component {
-  constructor() {
-    super();
-  }
-
-  render() {
-    const { sections } = this.props;
-
-    return (
-      <div className="directory-menu">
-        {
-          <Map collection={sections} iteratee={({id, ...otherProps }) => <MenuItem key={id} {...otherProps} />} />
-        }
-      </div>
-    );
-  };
-};
+const Directory = ({ sections }) => (
+  <div className="directory-menu">
+    {
+      <Map collection={sections} iteratee={({id, ...otherProps }) => <MenuItem key={id} {...otherProps} />} />
+    }
+  </div>
+);
 
 const mapStateToProps = createStructuredSelector({
   sections: selectDirectorySections
