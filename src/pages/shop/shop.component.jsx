@@ -11,6 +11,6 @@ const ShopPage = ({ match }) => {
       <Route path={`${match.path}/:id_collection`} component={Collection} />
     </div>
   );
-}
+};
 
 export default ShopPage;

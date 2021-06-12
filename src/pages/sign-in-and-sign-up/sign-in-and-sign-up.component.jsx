@@ -11,8 +11,8 @@ class SignInAndSignUp extends React.Component {
         <SignIn />
         <SignUp />
       </div>
-    )
-  }
-}
+    );
+  };
+};
 
 export default SignInAndSignUp;
