@@ -51,11 +51,11 @@ class App extends React.Component {
           <Route path='/checkout' component={Checkout} />
         </Switch>
       </div>
-    )
+    );
   };
-}
+};
 
-const mapStateToProps = createStructuredSelector ({
+const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser
 });
 
