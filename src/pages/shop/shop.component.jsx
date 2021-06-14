@@ -6,8 +6,13 @@ import { updateCollections } from '../../redux/shop/shop.actions';
 
 import CollectionOverview from "../../components/collection-overview/collection-overview.component";
 import Collection from '../collection/collection.component';
+import WithSpinner from '../../components/with-spinner/with-spinner.component';
+
+const CollectionOverviewWithSpinner = WithSpinner(CollectionOverview);
+const CollectionWithSpinner = WithSpinner(Collection);
 
 class ShopPage extends React.Component {
+  state = { loading: true };
   unsubscripeFromSnapshot = null;
 
   componentDidMount() {
@@ -17,20 +22,18 @@ class ShopPage extends React.Component {
     this.unsubscripeFromSnapshot = collectionRef.onSnapshot(async snapshot => {
       const collectionsMap = convertCollectionSnapshotToMap(snapshot);
       updateCollections(collectionsMap);
+      this.setState({ loading: false });
     });
   };
 
-  componentWillUnmount() {
-
-  }
-
   render() {
     const { match } = this.props;
+    const { loading } = this.state;
 
     return (
       <div>
-        <Route exact path={`${match.path}`} component={CollectionOverview} />
-        <Route path={`${match.path}/:id_collection`} component={Collection} />
+        <Route exact path={`${match.path}`} render={props => <CollectionOverviewWithSpinner isLoading={loading} {...props} /> } />
+        <Route path={`${match.path}/:id_collection`} render={props => <CollectionWithSpinner isLoading={loading} {...props} /> } />
       </div>
     );
   };
