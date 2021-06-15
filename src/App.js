@@ -12,6 +12,9 @@ import ShopPage from './pages/shop/shop.component';
 import SignInAndSignOut from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
 import Checkout from './pages/checkout/checkout.component';
 
+import UserProfile from './components/hoc-example/user-profile.component';
+import UserList from './components/hoc-example/user-list.component';
+
 import './App.css';
 
 class App extends React.Component {
@@ -44,6 +47,12 @@ class App extends React.Component {
     return (
       <div>
         <Header />
+
+        <div style={{display: 'flex', justifyContent: 'center', padding: '40px'}}>
+          <UserList />
+          <UserProfile name={'Popescu Tudor'} email={'tudor.yconsulting@gmail.com'} />
+        </div>
+
         <Switch>
           <Route exact path='/' component={Homepage} />
           <Route path='/shop' component={ShopPage} />
