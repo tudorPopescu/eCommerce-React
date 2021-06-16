@@ -12,8 +12,6 @@ import ShopPage from './pages/shop/shop.component';
 import SignInAndSignOut from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
 import Checkout from './pages/checkout/checkout.component';
 
-import { UseEffectExample } from './components/hooks-example/hooks.component';
-
 import './App.scss';
 
 class App extends React.Component {
@@ -46,7 +44,6 @@ class App extends React.Component {
     return (
       <div>
         <Header />
-        <UseEffectExample />
         <Switch>
           <Route exact path='/' component={Homepage} />
           <Route path='/shop' component={ShopPage} />
