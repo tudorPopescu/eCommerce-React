@@ -1,10 +1,13 @@
+@import './styles/variables';
+
 * {
   box-sizing: border-box;
 }
 
 body {
-  font-family: 'Open Sans Condensed';
+  font-family: $Roboto;
   padding: 20px 60px;
+  letter-spacing: 1px;
 }
 
 a {
