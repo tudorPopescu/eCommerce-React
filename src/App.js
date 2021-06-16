@@ -16,7 +16,7 @@ import './App.scss';
 
 const App = ({ setCurrentUser, currentUser }) => {
   useEffect(() => {
-    auth.onAuthStateChanged(async userAuth => {
+    const unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
 
@@ -30,6 +30,10 @@ const App = ({ setCurrentUser, currentUser }) => {
 
       setCurrentUser(userAuth);
     });
+
+    return () => {
+      unsubscribeFromAuth();
+    };
   }, [setCurrentUser]);
 
   return (
